@@ -9,7 +9,7 @@
 
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a href="/" class="navbar-bland">Flask Blog</a>
+        <a href="{{ url_for('show_entries') }}" class="navbar-bland">Flask Blog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,6 +29,11 @@
         </div>
     </nav>
 
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info" role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
     <div class="blog-body">
         {% block body %}{% endblock %}
     </div>
