@@ -1,4 +1,4 @@
 DEBUG = True
-
-USERNAME = "mmmmor"
-PASSWORD = "Aipon123"
+SECRET_KEY = "secret key"
+USERNAME = "aaa"
+PASSWORD = "aaa123"
