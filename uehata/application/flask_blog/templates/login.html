@@ -1,50 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel ="stylesheet" href =" https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src ="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <title>Flask Blog</title>
-</head>
-<body>
-    <div class="container">
+{% extends 'layout.html' %}
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="/">Flask Blog</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-control="navbarNav" aria-expanded="false" aria-label="Togglen navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item">
-                        <a href="/login" class="nav-link">ログイン</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/logout" class="nav-link">ログアウト</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-
-
-        <div class="blog-body">
-            <form action="/login" method=post>
-                <div class="form-group">
-                    <label for="InputTitle">ユーザ名</label>
-                    <input type="text" class="form-control" id="InputTitle" name=username>
-                </div>
-                <div class="form-group">
-                    <label for="InputPassword">パスワード</label>
-                    <input type="password" class="form-control" id="InputPassword" name=password>
-                </div>
-                <button type="submit" class="btn btn-primary">ログイン</button>
-            </form>
-        </div>
+{% block body %}
+<form action="/login" method=post>
+    <div class="form-group">
+        <label for="InputTitle">ユーザ名</label>
+        <input type="text" class="form-control" id="InputTitle" name=username>
     </div>
-    
-</body>
-</html>
+    <div class="form-group">
+        <label for="InputPassword">パスワード</label>
+        <input type="password" class="form-control" id="InputPassword" name=password>
+    </div>
+    <button type="submit" class="btn btn-primary">ログイン</button>
+</form>
+{% endblock body %}
