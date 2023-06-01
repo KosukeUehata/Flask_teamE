@@ -19,3 +19,6 @@ Flask_teamE
 * ステータスの確認 : git status
 * コミットログの確認 : git log 
 * バージョンの復元 : git checkout <コミットID>
+* ステージングの取り消し: git restore --staged <ファイル名>
+* コミットのみ取り消し（プッシュしていない）: git reset --soft <コミットID>
+* コミットの反転:  git revert <コミットID>
