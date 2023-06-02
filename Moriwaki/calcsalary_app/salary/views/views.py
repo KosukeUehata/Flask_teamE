@@ -10,7 +10,7 @@ def input():
 @app.route('/output', methods=['GET', 'POST'])
 def output():
     session["input_data"] = ""
-    #バリデーション    
+
     if request.form["salary"] == "":
         flash('給与が未入力です。入力してください。')
         return redirect(url_for("input"))
@@ -25,7 +25,7 @@ def output():
         session["input_data"] = request.form["salary"]
         return redirect(url_for("input")) 
 
-    #計算
+
     if request.method == "POST":
         input_salary = int(request.form["salary"])
         if (input_salary > 1000000):
@@ -33,6 +33,6 @@ def output():
         else:
             tax = input_salary * 0.1
         tax = Decimal(str(tax)).quantize(Decimal("0"), rounding=ROUND_HALF_UP)
-        #支給額 = 給与 - 税額
+
         pay = input_salary - tax
     return render_template("output.html",  salary=input_salary, tax=tax, pay=pay)
