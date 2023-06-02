@@ -2,5 +2,9 @@
 
 {% block body %}
 <p>給与 : {{salary}}円の場合、支給額 : {{pay}}円、税額 : {{tax}}円です。</p>
-<button onclick="location.href='{{url_for('input_salary')}}'" class="btn btn-primary">戻る</button>
+<form action="{{url_for('input_salary')}}" method=post>
+    <div class="form-group">
+        <button class="btn btn-primary" >戻る</button>
+    </div>
+</form>
 {% endblock body %}
