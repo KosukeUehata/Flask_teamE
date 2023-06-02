@@ -1,7 +1,13 @@
-from flask import request, url_for, render_template, flash, redirect, session
+from flask import flash, session
 
 
 def validate_salary(salary):
+    """
+     + 給与の入力チェック
+      - 入力 str : salary 
+      - 出力 bool : True or False
+    """
+    
     session["input_val"] = salary
     if salary == "":
         flash("給与が未入力です。入力してください。")
