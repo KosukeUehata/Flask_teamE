@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>{{entry.id}}</h2>
+<br>
+
+{{entry.text}}
+<br><br>
+投稿日時 {{entry.created_at}}
+{% endblock body %}
+    
