@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="salary-result">
+        <p>給与 {{ '{:,.0f}'.format(salary) }} 円の場合支給額 {{ '{:,.0f}'.format(payment) }} 円税額 {{ '{:,.0f}'.format(tax) }} 円です。</p>
+    </div>
+
+    <a href="{{ url_for('show_index') }}" class="btn btn-primary">戻る</a>
+{% endblock %}
