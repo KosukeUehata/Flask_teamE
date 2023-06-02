@@ -47,7 +47,7 @@ def output():
             tax = "{:,}".format(tax)
             flash("計算に成功しました。")
         else : 
-            flash("金額を入力してください。")
+            flash("給与が未入力です。入力してください。")
             return redirect(url_for("input_salary"))
         
     return render_template("output.html", salary=salary, pay=pay, tax=tax)
