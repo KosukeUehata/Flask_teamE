@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h2>{{ entry.title }}</h2>
+<br>
+
+{{ entry.text }}
+
+<br><br>
+投稿日時 {{ entry.created_at }}
+
+<div>
+    <a name="" id="" class="btn btn-outline-primary" href="{{ url_for('show_entries') }}" role="button">記事一覧に戻る</a>
+</div>
+{% endblock %}
