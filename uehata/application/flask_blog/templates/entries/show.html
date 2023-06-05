@@ -4,7 +4,6 @@
 <h2>{{entry.title}}</h2>
 <br>
 
-{% comment %} | safe 自動エスケープ htmlタグを適用して表示{% endcomment %}
 {{entry.text | safe}}
 <br><br>
 投稿日時 {{entry.created_at}}
