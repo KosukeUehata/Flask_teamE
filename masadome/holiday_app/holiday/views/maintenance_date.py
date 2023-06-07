@@ -9,7 +9,7 @@ from holiday.models.mst_holiday import Holiday
 def update():
     """
     飛んできた処理によって
-    新規登録/更新/削除
+    新規登録・更新/削除
     に飛ばす
 
     dayが空ならここではじく
