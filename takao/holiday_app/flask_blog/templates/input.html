@@ -1,0 +1,29 @@
+
+{% extends "layout.html" %}
+{% block body %}
+<form action="{{url_for('result')}}" method=post>
+    <div class="form-group">
+        <label for="InputTitle">祝日 日付</label>
+        <input type="date" class="form-control" id="InputTitle" name=holi_date>
+    </div>
+    <div class="form-group">
+        <label for="InputText">祝日 テキスト</label>
+        <input type="text" class="form-control" id="InputPassword" name=holi_text>
+    </div>
+
+    <div class="btn-group">
+        <button type="submit" class="btn btn-primary" name="button" value="insert_update">新規登録・更新</button>
+    </div>
+    
+    <div class="btn-group">
+        <button type="submit" class="btn btn-danger" name="button" value="delete" style="margin-left:10px">削除</button>
+    </div>
+    
+</form>
+
+<form action="{{url_for('list')}}" method=post>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-secondary" name="button" style="margin-top:30px">一覧</button>
+    </div>
+</form>
+{% endblock %}
