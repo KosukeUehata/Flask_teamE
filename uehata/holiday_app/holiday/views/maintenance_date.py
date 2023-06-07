@@ -9,13 +9,14 @@ def result():
     
     # バリデーション1 : 日付の未入力
     if request.form["holiday"] == "":
-        flash("祝日日付が未入力です")
+        flash("日付を選択してください")
         return redirect(url_for("input"))
 
     # バリデーション2 : 祝日テキストが未入力
     elif request.form["holiday_text"] == "":
-        flash("祝日テキストが未入力です")
+        flash("祝日テキストを入力してください")
         return redirect(url_for("input"))
+
     
     if request.form["button"] == "insert_update":
         
@@ -24,6 +25,16 @@ def result():
             holi_text=request.form["holiday_text"]
         )
         
+        # バリデーション3 : 1年以内に同じ祝日が登録されているか
+        # 祝日テキストが同じレコードを取得
+        same_holiday_list = Holiday.query.filter_by(holi_text=holiday.holi_text).all()
+        if same_holiday_list != []:
+            # 1年以内かどうかの判別
+            for holi in same_holiday_list:
+                if str(holiday.holi_date).split('-')[0] == str(holi.holi_date).split('-')[0]:
+                    flash("1年以内に同じ祝日がすでに登録されています")
+                    return redirect(url_for("input"))
+
         registered_holiday = Holiday.query.get(holiday.holi_date)
         if registered_holiday is None:
             # 登録処理
