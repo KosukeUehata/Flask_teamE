@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% if shori == 'update' %}
+    <p>{{holi_date}}は「{{holi_text}}」に更新されました。</p>
+    <form action="{{url_for('input')}}" method=post>
+        <div class="form-group">
+            <button class="btn btn-primary">戻る</button>
+        </div>
+    </form>
+{% elif shori == 'add' %}
+    <p>{{holi_date}}（{{holi_text}}）が登録されました。</p>
+    <form action="{{url_for('input')}}" method=post>
+        <div class="form-group">
+            <button class="btn btn-primary">戻る</button>
+        </div>
+    </form>
+{% elif shori == 'delete' %}
+    <p>{{holi_date}}（{{holi_text}}）が削除されました。</p>
+    <form action="{{url_for('input')}}" method=post>
+        <div class="form-group">
+            <button class="btn btn-primary">戻る</button>
+        </div>
+    </form>
+{% endif %}
+
+{% endblock %}

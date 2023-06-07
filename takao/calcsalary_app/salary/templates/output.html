@@ -20,6 +20,11 @@
     <div class="blog-body">
 
             <p>給与:{{sal}}円、支給額:{{pay_amount}}円、税額:{{tax}}円</p>
-
+            <form action="{{url_for('login')}}" method=post>
+                <div class="form-group">
+                    <button class="btn btn-primary">戻る</button>
+                </div>
+            </form>
+            
     </div>
 </div>

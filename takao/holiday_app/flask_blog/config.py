@@ -3,8 +3,6 @@ import os
 
 DEBUG = True
 SECRET_KEY = 'secret key'
-USERNAME = "admin"
-PASSWORD = "password"
 
 
 user = os.getenv("DB_USER","root")
