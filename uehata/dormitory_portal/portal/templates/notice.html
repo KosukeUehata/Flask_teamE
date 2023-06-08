@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+<br>
+<h2>{{notice.title}}</h2>
+<p>{{notice.created_at}}</p>
+<p>{{notice.content | safe}}</p>
+{% endblock body %}

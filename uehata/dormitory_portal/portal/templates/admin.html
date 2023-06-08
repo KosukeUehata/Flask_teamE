@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2>Notice</h2>
+<form action="{{url_for('admin')}}" method=post>
+    <div class="form-group">
+        <label for="InputTitle">タイトル</label>
+        <input type="text" class="form-control" id="InputTitle" name=notice_title>
+    </div>
+    <div class="form-group">
+        <label for="InputTitle">内容</label>
+        <textarea class="form-control" name=notice_content id="InputText" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary"  name="button" value="notice">追加</button>
+</form>
+{% endblock body %}

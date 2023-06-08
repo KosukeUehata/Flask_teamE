@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<br>
+<h3>お知らせ</h3>
+<div class="card card-group" style="height:200px; overflow-y:scroll;">
+    <div class="list-group list-group-flush" style="width:100%;">
+        {% for item in notice %}
+        <a href="{{url_for('notice', id=item.id)}}"  class="list-group-item list-group-item-action">{{item.created_at}} : {{item.title}}</a>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<h3>食事の予約履歴</h3>
+
+<div class="card card-group" style="height:200px; overflow-y:scroll;">
+    <ul class="list-group list-group-flush" style="width:100%;">
+        {% set b_cnt = namespace(cnt = 0)%}
+        {% set d_cnt = namespace(cnt = 0)%}
+        {% for re in reserve %}
+        
+            {% if re.type == "breakfast" %}
+            {% set b_cnt.cnt = b_cnt.cnt +  1 %}
+            <li class="list-group-item">{{re.day}} : <span style="font-weight: bold; color:lightblue;">朝食</span></li>
+
+            {% elif  re.type == "dinner" %}
+            {% set d_cnt.cnt = d_cnt.cnt + 1%}
+            <li class="list-group-item">{{re.day}} : <span style="font-weight: bold; color:red;">夕食</span></li>
+            {% endif %}
+        {% else %}
+        <li class="list-group-item">現在予約はありません</li>
+
+        {% endfor %}
+    </ul>
+</div>
+<p>予約件数　朝食：{{b_cnt.cnt}}件、夕食：{{d_cnt.cnt}}件</p>
+
+<br>
+<h3>アクセス</h3>
+<div class="d-flex p-2 bd-highlight">
+    <img src="../static/image/oji_dormitory.webp" alt="王子寮" style="width:50%; height:auto;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3237.8819162895975!2d139.73223422465676!3d35.75370702599118!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x601892795d260923%3A0x8cb593f11bde39e4!2z546L5a2Q44CB44CSMTE0LTAwMDIg5p2x5Lqs6YO95YyX5Yy6546L5a2Q77yR5LiB55uu!3m2!1d35.7529945!2d139.7378714!4m5!1s0x60189287f64dd933%3A0xb0749e6effc18d06!2z44CSMTE0LTAwMjIg5p2x5Lqs6YO95YyX5Yy6546L5a2Q5pys55S677yS5LiB55uu77yS77yV4oiS77yR77yQIOeOi-WtkOWvrg!3m2!1d35.754142!2d139.7318743!5e0!3m2!1sja!2sjp!4v1686188357669!5m2!1sja!2sjp" width="50%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" ></iframe>
+</div>
+{% endblock body %}
+    

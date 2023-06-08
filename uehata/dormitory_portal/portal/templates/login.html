@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+<br>
+    <form action="{{url_for('login')}}" method=post>
+        <div class="form-group">
+            <label for="InputTitle">部屋番号</label>
+            <input type="text" class="form-control" id="InputTitle" name=room_id>
+        </div>
+        <div class="form-group">
+            <label for="InputTitle">パスワード</label>
+            <input type="password" class="form-control" id="InputPassword" name=password>
+        </div>
+        <p>
+            <a href="{{url_for('signup')}}">新規登録はこちら</a>
+        </p>
+        <button type="submit" class="btn btn-primary" style="margin-top:20px;" name="button" value="login">ログイン</button>
+    </form>
+{% endblock body %}
+    
