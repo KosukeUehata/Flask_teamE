@@ -1,0 +1,51 @@
+{% extends "layout.html" %} {% block body %}
+
+    <br>
+    <form form action="{{ url_for('database_check') }}" method="post">
+    
+        <div class="form-group">
+            <label for="Player_name">プレイヤー1</label>
+            <input type="text" class="form-control" id="Player1" name="player1" required>
+            <label for="Player_point">点数（素点を入力）</label>
+            <input type="number" class="form-control" id="Point1" name="point1" required>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="Player_name">プレイヤー2</label>
+            <input type="text" class="form-control" id="Player2" name="player2" required>
+            <label for="Player_point">点数（素点を入力）</label>
+            <input type="number" class="form-control" id="Point2" name="point2" required>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="Player_name">プレイヤー3</label>
+            <input type="text" class="form-control" id="Player3" name="player3" required>
+            <label for="Player_point">点数（素点を入力）</label>
+            <input type="number" class="form-control" id="Point3" name="point3" required>
+        </div>
+        <br>
+
+        <div class="form-group">
+            <label for="Player_name">プレイヤー4</label>
+            <input type="text" class="form-control" id="Player4" name="player4" required>
+            <label for="Player_point">点数（素点を入力）</label>
+            <input type="number" class="form-control" id="Point4" name="point4" required>
+        </div>
+        <br>
+
+        <div class="btn-group">
+            <button type="submit" class="btn btn-primary" name="button" value="insert_update">新規登録</button>
+        </div>
+
+    </form>
+
+    <br>
+
+    <form action="{{ url_for('list') }}" method="post">
+        <button type="submit" class="btn btn-secondary">一覧出力</button>
+    </form>
+
+{% endblock %}
+

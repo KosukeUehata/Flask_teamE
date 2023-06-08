@@ -1,0 +1,50 @@
+{% extends "layout.html" %} {% block body %}
+    <br>
+    <table class="table">
+        {% if PointList %}
+        <thead>
+            <tr>
+                <th class="table-primary" scope="col">No.</th>
+                <th class="table-primary" scope="col">プレイヤー1</th>
+                <th class="table-primary" scope="col">Score1</th>
+                <th class="table-primary" scope="col">プレイヤー2</th>
+                <th class="table-primary" scope="col">Score2</th>
+                <th class="table-primary" scope="col">プレイヤー3</th>
+                <th class="table-primary" scope="col">Score3</th>
+                <th class="table-primary" scope="col">プレイヤー4</th>
+                <th class="table-primary" scope="col">Score4</th>         
+            </tr>
+        </thead>
+
+        <tbody>       
+            {% for DB_list in PointList %}
+            <tr>
+                <td class="num" scope="row">{{ DB_list.num }}</td>
+                <td class="player" scope="row">{{ DB_list.player1 }}</td>    
+                <td class="point" scope="row">{{ DB_list.point1 }}</td>
+                <td class="player" scope="row">{{ DB_list.player2 }}</td>    
+                <td class="point" scope="row">{{ DB_list.point2 }}</td>    
+                <td class="player" scope="row">{{ DB_list.player3 }}</td>    
+                <td class="point" scope="row">{{ DB_list.point3 }}</td>
+                <td class="player" scope="row">{{ DB_list.player4 }}</td>    
+                <td class="point" scope="row">{{ DB_list.point4 }}</td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr>
+                <td>
+                    対局レコードが登録されていません
+                </td>
+            </tr>
+            {% endif %}     
+        </tbody>
+    </table>    
+    <br>
+
+    <form action="{{ url_for('main_page') }}" method="post">
+        <button type="submit" class="btn btn-primary">戻る</button>
+    </form>    
+    <br>   
+    <br>
+
+{% endblock %}
